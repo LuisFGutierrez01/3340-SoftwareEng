@@ -8,6 +8,8 @@ class User < ApplicationRecord
   	return role_id == 99
   end
 
+
+  has_one :player
 end
 
 

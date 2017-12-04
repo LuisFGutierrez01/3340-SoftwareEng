@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'profile/index'
+
+  resources :players
   get '/', to: "home#index"
   get 'home/index'
 
