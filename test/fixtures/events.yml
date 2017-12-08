@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  goalFunds: 1.5
+  currentFunds: 1.5
+  dateCreated: 2017-12-08
+  dateDue: 2017-12-08
+  createdBy: 1
+  title: MyString
+  info: MyString
+
+two:
+  goalFunds: 1.5
+  currentFunds: 1.5
+  dateCreated: 2017-12-08
+  dateDue: 2017-12-08
+  createdBy: 1
+  title: MyString
+  info: MyString

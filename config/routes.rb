@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'profile/index'
 
   resources :players
