@@ -32,7 +32,7 @@ class GoalsController < ApplicationController
   def create
     @player = current_user.player
     @goal = @player.goals.build(goal_params)
-
+    @goal.user_id = @player.user_id
     respond_to do |format|
       if @goal.save
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
