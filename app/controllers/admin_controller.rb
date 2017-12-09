@@ -6,7 +6,7 @@ class AdminController < ApplicationController
 	end
 
 
-	private
+	protected
 
 	def admin_only!
 		if !current_user.admin?

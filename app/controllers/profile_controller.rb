@@ -3,6 +3,7 @@ class ProfileController < ApplicationController
 
   def index
     @user = current_user
+    @player = current_user.player
   end
 
 end

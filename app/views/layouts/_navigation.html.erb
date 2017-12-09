@@ -1,10 +1,11 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container" >
         <a class="navbar-brand" href="<%=home_index_url%>"><h2>sponsor.me ?</h2></a>
-        <div class= " navbar-nav  mr-auto">
-          <a class="nav-item nav-link" href="<%=new_event_url%>">Begin?</a>
+        <div class=" navbar-nav  mr-auto">
+          <a class="nav-item nav-link" href="<%=players_url%>">Players</a>
+          <a class="nav-item nav-link" href="<%=events_url%>">Goals</a>
         </div>
-        <ul class="navbar-nav">
+      <ul class="navbar-nav">
           <li>
             <% if (user_signed_in? != true) %>
               <a href="<%= new_user_registration_url %>"role="button" class="btn btn-primary mr-3">Sign Up<span class="sr-only">(current)</span></a>
@@ -14,11 +15,13 @@
             <li>
               <a class="btn btn-outline-secondary" href="<%= new_user_session_url %>" role="button">Log In </a>
           <% else%>
-            <a class="btn btn-outline-secondary mr-2" href="<%= destroy_user_session_url %>" data-method="delete">Sign Out </a>
-            <a class="btn btn-outline-secondary " href="<%= profile_index_url %>" data-method="get">Profile </a>
+            <a class="btn btn-outline-secondary" href="<%= destroy_user_session_url %>" data-method="delete">Sign Out </a>
+            <a class="btn btn-outline-secondary ml-2" href="<%= profile_index_url %>" data-method="get">Profile </a>
             </li>
           <% end%>
-
+        <li>
+          <a class="btn btn-outline-secondary ml-2" href="<%=new_event_url%>">Start Here!</a>
+        </li>
         </ul>
       </div>
     </nav>

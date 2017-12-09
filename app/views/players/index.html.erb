@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Player name</th>
       <th>Description</th>
       <th>Youtube url</th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.user %></td>
         <td><%= player.player_name %></td>
         <td><%= player.description %></td>
         <td><%= player.youtube_url %></td>

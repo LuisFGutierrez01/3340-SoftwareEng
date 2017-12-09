@@ -19,12 +19,19 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+    @player = Player.find(params[:id])
+    @user_player = current_user.player.id.to_s
+    @id = params[:id]
+    if user_signed_in? == false || @user_player != @id
+      redirect_to '/'
+    end
   end
 
   # POST /players
   # POST /players.json
   def create
-    @player = Player.new(player_params)
+    @user = current_user
+    @player = @user.build_player(player_params)
 
     respond_to do |format|
       if @player.save
@@ -33,6 +40,7 @@ class PlayersController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @player.errors, status: :unprocessable_entity }
+        format.json { render player_params }
       end
     end
   end
