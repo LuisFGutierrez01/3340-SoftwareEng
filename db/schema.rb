@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208192745) do
+ActiveRecord::Schema.define(version: 20171209053653) do
 
-  create_table "events", force: :cascade do |t|
-    t.float "goalFunds"
-    t.float "currentFunds"
-    t.date "dateCreated"
-    t.date "dateDue"
-    t.integer "createdBy"
+  create_table "goals", force: :cascade do |t|
     t.string "title"
-    t.string "info"
+    t.text "campaigng"
+    t.datetime "duedate"
+    t.integer "funds_goal"
+    t.integer "funds_current"
+    t.integer "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_goals_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
