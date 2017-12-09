@@ -16,13 +16,17 @@
               <a class="btn btn-outline-secondary" href="<%= new_user_session_url %>" role="button">Log In </a>
           <% else%>
             <a class="btn btn-outline-secondary" href="<%= destroy_user_session_url %>" data-method="delete">Sign Out </a>
-            <a class="btn btn-outline-secondary ml-2" href="<%= profile_index_url %>" data-method="get">Profile </a>
+            <a class="btn btn-outline-secondary ml-2" href="<%= profile_index_url %>" data-method="get">My Profile</a>
             </li>
           <% end%>
         <li>
+          <a class="btn btn-outline-secondary ml-2" href="<%=new_goal_url%>">My Player</a>
+          <a class="btn btn-outline-secondary ml-2" href="<%=new_goal_url%>">My Goals</a>
+        </li>
+        <li>
           <a class="btn btn-outline-secondary ml-2" href="<%=new_goal_url%>">Start Here!</a>
         </li>
-        </ul>
+      </ul>
       </div>
     </nav>
     

@@ -20,12 +20,12 @@
   <strong>Birthday:</strong>
   <%= "0" + (@user.birthday/1000000).to_s + "/" + "0" + ((@user.birthday%100000)/10000).to_s + "/" + (@user.birthday%10000).to_s %>
 </p>
-<%= link_to 'Edit your user', edit_user_registration_path(@user)%>
+<%= link_to "Edit your profile!", edit_user_registration_path(@user)%>
 
 <% if !current_user.is_player?%>
   <%= link_to "Create your player's page!", new_player_url%>
   <% else %>
-  <%=link_to "Edit your player's page", edit_player_path(@player) %>
+  <%=link_to "Edit your player's page", edit_player_path(@player)%>
 <%end%>
 
 
