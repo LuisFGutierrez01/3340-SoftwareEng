@@ -19,12 +19,19 @@ class GoalsController < ApplicationController
 
   # GET /goals/1/edit
   def edit
+    # @goal = Goal.find(params[:id])
+    # @player_goal = current_user.player.goal.id.to_s
+    # @id = params[:id]
+    # if user_signed_in? == false || @player_goal != @id
+    #   redirect_to '/'
+    # end
   end
 
   # POST /goals
   # POST /goals.json
   def create
-    @goal = Goal.new(goal_params)
+    @player = current_user.player
+    @goal = @player.goals.build(goal_params)
 
     respond_to do |format|
       if @goal.save

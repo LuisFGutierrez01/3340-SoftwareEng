@@ -19,10 +19,18 @@
             <a class="btn btn-outline-secondary ml-2" href="<%= profile_index_url %>" data-method="get">My Profile</a>
             </li>
           <% end%>
+        <% if user_signed_in?%>
         <li>
-          <a class="btn btn-outline-secondary ml-2" href="<%=new_goal_url%>">My Player</a>
-          <a class="btn btn-outline-secondary ml-2" href="<%=new_goal_url%>">My Goals</a>
+
+          <% if @player_nav != nil  %>
+          <a class="btn btn-outline-secondary ml-2" href="<%=player_path(@player_nav)%>">My Player</a>
+            <% else %>
+            <a class="btn btn-outline-secondary ml-2" href="<%=new_player_url%>">My Player</a>
+            <% end %>
+
+            <a class="btn btn-outline-secondary ml-2" href="<%=new_player_url%>">My Goal</a>
         </li>
+        <% end%>
         <li>
           <a class="btn btn-outline-secondary ml-2" href="<%=new_goal_url%>">Start Here!</a>
         </li>

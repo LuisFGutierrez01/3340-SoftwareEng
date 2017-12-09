@@ -20,9 +20,9 @@ class PlayersController < ApplicationController
   # GET /players/1/edit
   def edit
     @player = Player.find(params[:id])
-    @user_player = current_user.player.id.to_s
+    @user_player_edit = current_user.player.id.to_s
     @id = params[:id]
-    if user_signed_in? == false || @user_player != @id
+    if user_signed_in? == false || @user_player_edit != @id
       redirect_to '/'
     end
   end
