@@ -28,4 +28,8 @@
 
 <br>
 
-<%= link_to 'New Player', new_player_path %>
+<% if @user !=  nil %>
+  <%= link_to 'New Player', new_player_path %>
+<% else %>
+  <%= link_to 'Log in to create your player!', new_user_session_url %>
+<% end %>

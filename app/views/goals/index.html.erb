@@ -33,5 +33,12 @@
 </table>
 
 <br>
-
-<%= link_to 'New Goal', new_goal_path %>
+<% if @user !=  nil %>
+  <% if @player != nil %>
+    <%= link_to 'New Goal', new_goal_path %>
+  <% else %>
+    <%= link_to 'Want to create a goal? Click here to start with the process', new_player_path %>
+  <% end %>
+<% else %>
+  <%= link_to 'Log in to start creating your goals!', new_user_session_url %>
+<% end %>

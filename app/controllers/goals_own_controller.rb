@@ -1,4 +1,5 @@
 class GoalsOwnController < ApplicationController
+
   def index
     @user = current_user
     @player = @user.player
@@ -13,5 +14,6 @@ class GoalsOwnController < ApplicationController
   # GET /goal_own/missing
   def missing
   end
+
 
 end

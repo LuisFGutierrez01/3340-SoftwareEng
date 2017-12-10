@@ -4,12 +4,21 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
+    @user= current_user
+    if !@user.nil?
+      @player = @user.player
+    end
+    @goals_own = Goal.where(player_id: @player.id)
     @goals = Goal.all
   end
 
   # GET /goals/1
   # GET /goals/1.json
   def show
+  end
+
+  # GET /goals/1/support
+  def support
   end
 
   # GET /goals/new

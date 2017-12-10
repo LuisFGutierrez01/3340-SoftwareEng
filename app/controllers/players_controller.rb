@@ -4,6 +4,7 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
+    @user = current_user
     @players = Player.all
   end
 
