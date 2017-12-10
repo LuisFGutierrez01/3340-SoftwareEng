@@ -23,11 +23,17 @@
 <%= link_to "Edit your profile!", edit_user_registration_path(@user)%>
 
 <% if !current_user.is_player?%>
-  <%= link_to "Create your player's page!", new_player_url%>
+    <%= link_to "Create my player's page.", new_player_url%>
+<% else %>
+  <%=link_to "Edit my player's page.", edit_player_path(@player)%>
+  <% if @goals == nil %>
+    <%= link_to "Create new goal.", new_goal_url %>
   <% else %>
-  <%=link_to "Edit your player's page", edit_player_path(@player)%>
-  <%= link_to "Create new goal!", new_goal_url %>
-<%end%>
+    <%= link_to "View my goals.", goals_url %>
+  <% end %>
+<% end %>
+
+
 
 
 

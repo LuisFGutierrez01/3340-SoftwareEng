@@ -4,6 +4,7 @@ class ProfileController < ApplicationController
   def index
     @user = current_user
     @player = current_user.player
+    @goals = Goal.where(:user_id => @user.id)
   end
 
 end
