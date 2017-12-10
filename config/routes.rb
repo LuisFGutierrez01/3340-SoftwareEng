@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'goals_own/index'
+
   resources :goals
   get 'profile/index'
 

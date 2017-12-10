@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
 
   def nav
     @user_nav = current_user
+    if @user_nav != nil
     @player_nav = current_user.player
+    end
   end
 
   protected
