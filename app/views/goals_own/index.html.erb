@@ -16,18 +16,20 @@
   </thead>
 
   <tbody>
-  <% @goals.each do |goal| %>
-    <tr>
-      <td><%= goal.title %></td>
-      <td><%= goal.campaigng %></td>
-      <td><%= goal.duedate %></td>
-      <td><%= goal.funds_goal %></td>
-      <td><%= goal.funds_current %></td>
-      <td><%= goal.player %></td>
-      <td><%= link_to 'Show', goal %></td>
-      <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-      <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+  <% if @goals != nil %>
+    <% @goals.each do |goal| %>
+      <tr>
+        <td><%= goal.title %></td>
+        <td><%= goal.campaigng %></td>
+        <td><%= goal.duedate %></td>
+        <td><%= goal.funds_goal %></td>
+        <td><%= goal.funds_current %></td>
+        <td><%= goal.player %></td>
+        <td><%= link_to 'Show', goal %></td>
+        <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+        <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>

@@ -23,12 +23,12 @@
         <li>
 
           <% if @player_nav != nil  %>
-          <a class="btn btn-outline-secondary ml-2" href="<%=player_path(@player_nav)%>">My Player</a>
-            <% else %>
+            <a class="btn btn-outline-secondary ml-2" href="<%=player_path(@player_nav)%>">My Player</a>
+            <a class="btn btn-outline-secondary ml-2" href="<%=goals_own_index_url%>">My Goals</a>
+          <% else %>
             <a class="btn btn-outline-secondary ml-2" href="<%=new_player_url%>">My Player</a>
-            <% end %>
-
-            <a class="btn btn-outline-secondary ml-2" href="<%=new_player_url%>">My Goal</a>
+            <a class="btn btn-outline-secondary ml-2" href="<%= goals_own_missing_url %>">My Goals</a>
+          <% end %>
         </li>
         <% end%>
         <li>
