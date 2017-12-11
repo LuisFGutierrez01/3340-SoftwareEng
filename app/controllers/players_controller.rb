@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :owner_only, only: [:edit, :update, :destroy]
 
   # GET /players
   # GET /players.json
@@ -20,12 +21,6 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-    @player = Player.find(params[:id])
-    @user_player_edit = current_user.player.id.to_s
-    @id = params[:id]
-    if user_signed_in? == false || @user_player_edit != @id
-      redirect_to '/'
-    end
   end
 
   # POST /players
@@ -71,6 +66,13 @@ class PlayersController < ApplicationController
   end
 
   private
+
+  def owner_only
+    if @player.user_id !=  current_user
+      redirect_to "/players"
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_player
       @player = Player.find(params[:id])

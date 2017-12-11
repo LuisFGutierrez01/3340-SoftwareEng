@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :goals
   get '/goals/:id/support(.:format)', as: 'support_goal', to: 'goals#support'
+  post '/goals/:id/process(.:format)', to: 'goals#process_support'
   resources :players
   get '/profile/index'
   get '/goals_own/index'

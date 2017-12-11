@@ -1,14 +1,10 @@
 class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
+  before_action :owner_only, only: [:edit, :update, :destroy]
 
   # GET /goals
   # GET /goals.json
   def index
-    @user= current_user
-    if !@user.nil?
-      @player = @user.player
-    end
-    @goals_own = Goal.where(player_id: @player.id)
     @goals = Goal.all
   end
 
@@ -19,6 +15,13 @@ class GoalsController < ApplicationController
 
   # GET /goals/1/support
   def support
+    @goal = Goal.find(params[:id])
+  end
+
+  def process_support
+     @goal = Goal.find(params[:id])
+     @goal.funds_current += params[:goal][:donation].to_f
+     @goal.save
   end
 
   # GET /goals/new
@@ -28,12 +31,6 @@ class GoalsController < ApplicationController
 
   # GET /goals/1/edit
   def edit
-    # @goal = Goal.find(params[:id])
-    # @player_goal = current_user.player.goal.id.to_s
-    # @id = params[:id]
-    # if user_signed_in? == false || @player_goal != @id
-    #   redirect_to '/'
-    # end
   end
 
   # POST /goals
@@ -42,6 +39,7 @@ class GoalsController < ApplicationController
     @player = current_user.player
     @goal = @player.goals.build(goal_params)
     @goal.user_id = @player.user_id
+    @goal.funds_current = 0
     respond_to do |format|
       if @goal.save
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
@@ -80,12 +78,18 @@ class GoalsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_goal
-      @goal = Goal.find(params[:id])
-    end
+  def set_goal
+    @goal = Goal.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def goal_params
-      params.require(:goal).permit(:title, :campaigng, :duedate, :funds_goal, :funds_current, :player_id)
+  def owner_only
+    if @goal.player.user_id !=  current_user
+      redirect_to "/goals"
     end
+  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+  def goal_params
+    params.require(:goal).permit(:title, :campaigng, :duedate, :funds_goal, :funds_current, :player_id)
+  end
+
 end
