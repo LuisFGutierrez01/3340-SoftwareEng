@@ -24,25 +24,66 @@
 
 <div class="container">
   <div id="main_goal_headline" class="ml-auto">
-    <h2>Goals</h2>
+    <h2>Players</h2>
   </div>
-
-</div>
-
-<div class="row">
-  <% @goals.each do |goal| %>
-    <div class="col mb-4">
-      <div class="card p-2" style="width: 20rem;">
-        <img class="card-img-top" src="/assets/download.svg" alt="Card image card-img-top">
-        <div class="card-block">
-          <h4 class="card-title"><%= goal.title %></h4>
-          <p class="card-text"><%= goal.campaigng%></p>
-          <%= link_to 'Show', goal, class: 'btn'%>
+  <div class="row">
+    <% @players.each do |player| %>
+      <div class="col mb-4">
+        <div class="card p-2" style="width: 20rem;">
+          <img class="card-img-top" src="/assets/download.svg" alt="Card image card-img-top">
+          <div class="card-block">
+            <h4 class="card-title"><%= player.player_name %></h4>
+            <p class="card-text"><%= player.description%></p>
+            <%= link_to 'Show', player, class: 'btn'%>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
+
+  <div class="container mb-5">
+    <div id="main_goal_headline" class="ml-auto">
+      <h2>Goals</h2>
+    </div>
+    <div class="row">
+      <% @goals.each do |goal| %>
+        <div class="col mb-4">
+          <div class="card p-2" style="width: 20rem;">
+            <img class="card-img-top" src="/assets/download.svg" alt="Card image card-img-top">
+            <div class="card-block">
+              <h4 class="card-title"><%= goal.title %></h4>
+              <p class="card-text"><%= goal.synopsis%></p>
+              <%= link_to 'Show', goal, class: 'btn'%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<% if @goals_own != nil %>
+  <div class="container">
+    <div id="main_goal_headline" class="ml-auto">
+      <h2>MyGoals</h2>
+    </div>
+    <div class="row">
+      <% @goals_own.each do |goal| %>
+        <div class="col mb-4">
+          <div class="card p-2" style="width: 20rem;">
+            <img class="card-img-top" src="/assets/download.svg" alt="Card image card-img-top">
+            <div class="card-block">
+              <h4 class="card-title"><%= goal.title %></h4>
+              <p class="card-text"><%= goal.synopsis%></p>
+              <%= link_to 'Show', goal, class: 'btn'%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <h1>intro to the site</h1>
 <div>
