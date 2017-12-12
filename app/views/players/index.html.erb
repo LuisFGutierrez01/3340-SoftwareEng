@@ -29,7 +29,9 @@
 <br>
 
 <% if @user !=  nil %>
-  <%= link_to 'New Player', new_player_path %>
+  <% if @player.nil? %>
+    <%= link_to 'New Player', new_player_path %>
+  <% end %>
 <% else %>
   <%= link_to 'Log in to create your player!', new_user_session_url %>
 <% end %>

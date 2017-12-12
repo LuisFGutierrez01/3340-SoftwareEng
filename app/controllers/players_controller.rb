@@ -6,6 +6,9 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @user = current_user
+    if !@user.nil?
+      @player = @user.player
+    end
     @players = Player.all
   end
 
