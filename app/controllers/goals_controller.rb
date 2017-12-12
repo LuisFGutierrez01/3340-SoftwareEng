@@ -83,9 +83,9 @@ class GoalsController < ApplicationController
   end
 
   def owner_only
-    if @goal.player.user_id !=  current_user
-      redirect_to "/goals"
-    end
+      if current_user.nil? || @goal.player.user_id !=  current_user.id
+        redirect_to "/goals"
+      end
   end
     # Never trust parameters from the scary internet, only allow the white list through.
   def goal_params
