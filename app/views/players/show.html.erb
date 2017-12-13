@@ -32,3 +32,41 @@
 	</div>
   </div>
 </div>
+<div class="container">
+  <div class="container ml-auto mb-5">
+    <h5 class="display-4 ml-auto" style="color: dimgray"><%= @player.player_name %>'s Goals</h5>
+    <p id="notice"><%= notice %></p>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Synopsis</th>
+        <th scope="col">Duedate</th>
+        <th scope="col">Funds goal</th>
+        <th scope="col">Funds current</th>
+        <th scope="col">Player</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% if @goals_own != nil %>
+        <% @goals_own.each do |goal| %>
+          <tr class="table-dark">
+            <td scope="row"><%= goal.title %></td>
+            <td><%= goal.synopsis %></td>
+            <td><%= goal.duedate %></td>
+            <td><%= goal.funds_goal %></td>
+            <td><%= goal.funds_current %></td>
+            <td><%= goal.player.player_name %></td>
+            <td><%= link_to 'Show', goal %></td>
+            <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+            <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+    <br>
+  </div>
+</div>
