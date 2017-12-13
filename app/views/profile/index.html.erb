@@ -1,27 +1,53 @@
-<h1>Profile#index</h1>
-<p>Find me in app/views/profile/index.html.erb</p>
+<div class="view">
+  <div class="full-bg-img flex-center">
+    <div class="container ml-auto mb-5">
+         <h5 class="display-2 ml-auto">Profile</h5>
+      <h3>
+        Username
+        <small class="text-muted"><%= @user.username %></small>
+      </h3>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+      <h3>
+        FirstName
+        <small class="text-muted"><%= @user.first_name %></small>
+      </h3>
 
-<p>
-  <strong>First Name:</strong>
-  <%= @user.first_name %>
-</p>
+      <h3>
+        LastName
+        <small class="text-muted"><%= @user.last_name %></small>
+      </h3>
 
-<p>
-  <strong>Last Name:</strong>
-  <%= @user.last_name %>
-</p>
+      <h3>
+        Birthdate
+        <small class="text-muted"><%= "0" + (@user.birthday/1000000).to_s + "/" + "0" + ((@user.birthday%100000)/10000).to_s + "/" + (@user.birthday%10000).to_s %></small>
+      </h3>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= "0" + (@user.birthday/1000000).to_s + "/" + "0" + ((@user.birthday%100000)/10000).to_s + "/" + (@user.birthday%10000).to_s %>
-</p>
+
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/users/edit">Edit your profile</a></li>
+
+
+      <% if !current_user.is_player?%>
+          <li class="breadcrumb-item"><a href="/players/new">Create Player Page</a></li>
+      <% else %>
+        <li class="breadcrumb-item"><a href="<%=edit_player_path(@player)%>">Edit My Player Page</a></li>
+        <% if @goals == nil %>
+          <li class="breadcrumb-item"><a href="<%=new_goal_url %>">Create New Goal</a></li>
+        <% else %>
+          <li class="breadcrumb-item"><a href="<%=goals_own_index_url %>">View My Goals</a></li>
+        <% end %>
+      <% end %>
+      </ol>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!--
 <%= link_to "Edit your profile!", edit_user_registration_path(@user)%>
-
 <% if !current_user.is_player?%>
     <%= link_to "Create my player's page.", new_player_url%>
 <% else %>
@@ -33,7 +59,7 @@
   <% end %>
 <% end %>
 
-
+-->
 
 
 
