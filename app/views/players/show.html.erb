@@ -1,24 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="view">
+  <div class="full-bg-img flex-center">
+    <div class="container ml-auto mb-5">
+         <h5 class="display-3 ml-auto" style="color: dimgray">Player</h5>
 
-<p>
-  <strong>Username:</strong>
-  <%= @player.user.username %>
-</p>
+		<p id="notice" style="color: red"><%= notice %></p>
 
-<p>
-  <strong>Player name:</strong>
-  <%= @player.player_name %>
-</p>
+		 <h3>
+		    Username
+		    <small class="text-muted"><%= @player.user.username %></small>
+		</h3>
 
-<p>
-  <strong>Description:</strong>
-  <%= @player.description %>
-</p>
+		<h3>
+		    Player Name
+		    <small class="text-muted"><%= @player.player_name %></small>
+		</h3>
 
-<p>
-  <strong>Youtube url:</strong>
-  <%= @player.youtube_url %>
-</p>
+		<h3>
+		    Description
+		    <small class="text-muted"><%= @player.description %></small>
+		</h3>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+		<h3>
+		    Youtube URL
+		    <small class="text-muted"><%= @player.youtube_url %></small>
+		</h3>
+
+		<ol class="breadcrumb">
+	        <li class="breadcrumb-item"><a href="<%=edit_player_path(@player)%>">Edit</a></li>
+			<li class="breadcrumb-item"><a href="<%=players_path %>">Back</a></li>
+		</ol>
+	</div>
+  </div>
+</div>
