@@ -11,28 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :goal_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :synopsis %>
-    <%= form.text_area :synopsis, id: :goal_synopsis %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duedate %>
-    <%= form.datetime_select :duedate, id: :goal_duedate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :funds_goal %>
-    <%= form.number_field :funds_goal, id: :goal_funds_goal %>
-  </div>
 
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+
+<% if @player == nil %>
+
+  <div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>You must </strong> <a href="<%=new_player_url%>" class="alert-link">create a player page </a> before making a goal incentive. 
+</div>
+
+  <% else %>
+    <div class="field">
+      <h3><%= form.label :title %>
+      <%= form.text_field :title, id: :goal_title %></h3>
+    </div>
+
+    <div class="field">
+      <h3><%= form.label :synopsis %>
+      <%= form.text_area :synopsis, id: :goal_synopsis %></h3>
+    </div>
+
+    <div class="field">
+      <h3><%= form.label :duedate %>
+      <%= form.datetime_select :duedate, id: :goal_duedate %></h3>
+    </div>
+
+    <div class="field">
+      <h3><%= form.label :funds_goal %>
+      <%= form.number_field :funds_goal, id: :goal_funds_goal %></h3>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+<%end%>
