@@ -12,19 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :player_name %>
-    <%= form.text_field :player_name, id: :player_player_name %>
+    <h3 style="color: dimgray"><%= form.label :player_name %>
+    <%= form.text_field :player_name, id: :player_player_name %></h3>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :player_description %>
+    <h3 style="color: dimgray"><%= form.label :description %>
+    <%= form.text_area :description, id: :player_description %></h3>
   </div>
 
   <div class="field">
-    <%= form.label :youtube_url %>
-    <%= form.text_field :youtube_url, id: :player_youtube_url %>
+    <h3 style="color: dimgray"><%= form.label :youtube_url %>
+    <%= form.text_field :youtube_url, id: :player_youtube_url %></h3>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>
