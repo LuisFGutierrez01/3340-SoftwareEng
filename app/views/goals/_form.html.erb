@@ -14,14 +14,11 @@
 
 
 
-<% if @player == nil %>
-
-  <div class="alert alert-dismissible alert-danger">
+  <div class="alert alert-dismissible alert-warning">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <strong>You must </strong> <a href="<%=new_player_url%>" class="alert-link">create a player page </a> before making a goal incentive. 
 </div>
 
-  <% else %>
     <div class="field">
       <h3><%= form.label :title %>
       <%= form.text_field :title, id: :goal_title %></h3>
@@ -48,4 +45,3 @@
     </div>
   <% end %>
 
-<%end%>

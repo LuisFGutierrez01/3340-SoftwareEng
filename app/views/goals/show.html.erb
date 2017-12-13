@@ -1,35 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="view">
+  <div class="full-bg-img flex-center">
+    <div class="container ml-auto mb-5">
+      <p id="notice" style="color: red"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @goal.title %>
-</p>
+      <h3>
+        Title:
+         <small class="text-muted"><%= @goal.title %></small>
+      </h3>
 
-<p>
-  <strong>Synopsis:</strong>
-  <%= @goal.synopsis %>
-</p>
+      <h3>
+        <strong>Synopsis:</strong>
+         <small class="text-muted"><%= @goal.synopsis %></small>
+      </h3>
 
-<p>
-  <strong>Duedate:</strong>
-  <%= @goal.duedate %>
-</p>
+      <h3>
+        <strong>Duedate:</strong>
+         <small class="text-muted"><%= @goal.duedate %></small>
+      </h3>
 
-<p>
-  <strong>Funds goal:</strong>
-  <%= @goal.funds_goal %>
-</p>
+      <h3>
+        <strong>Funds goal:</strong>
+         <small class="text-muted"><%= @goal.funds_goal %></small>
+      </h3>
 
-<p>
-  <strong>Funds current:</strong>
-  <%= @goal.funds_current %>
-</p>
+      <h3>
+        <strong>Funds current:</strong>
+         <small class="text-muted"><%= @goal.funds_current %></small>
+      </h3>
 
-<p>
-  <strong>Player:</strong>
-  <%= @goal.player %>
-</p>
+      <h3>
+        <strong>Player:</strong>
+         <small class="text-muted"><%= @goal.player %></small>
+      </h3>
 
-<%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %>
-<%= link_to 'Support this goal!', support_goal_url %>
+
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="<%=edit_goal_path(@goal)%>">Edit</a></li>
+          <li class="breadcrumb-item"><a href="<%=goals_path%>">Back</a></li>
+          <li class="breadcrumb-item"><a href="<%=support_goal_url%>">Support This Goal</a></li>
+      </ol>
+
+    </div>
+  </div>
+</div>
