@@ -1,1 +1,24 @@
-<h1>Thank you for your support!</h1>
+<div class="view">
+  <div class="full-bg-img flex-center">
+    <div class="container ml-auto mb-5">
+         <h5 class="display-4 ml-auto" style="color: dimgray">Thank you for your support!</h5>
+         <h2><small class="text-muted">Youre one step closer on sending your fighter to the tournament.</small></h2>
+
+         <br><br>
+
+         	<h3 style="text-align:left;">
+			 Current Funds <small class="text-muted">$ <%=@goal.funds_current%>  </small>
+			 <span class="text-success" style="float:right;">Goal <small class="text-success" >$ <%=@goal.funds_goal%>  </small></span></h3>
+
+      		 <div class="progress">
+  				<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= @goal.progress %>%" aria-valuenow="<%= @goal.progress %>" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="<%=goals_path %>">Back to goals</a></li>
+			</ol>
+
+
+    </div>
+ </div>
+</div>

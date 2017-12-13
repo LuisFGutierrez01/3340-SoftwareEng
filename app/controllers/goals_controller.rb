@@ -22,6 +22,7 @@ class GoalsController < ApplicationController
      @goal = Goal.find(params[:id])
      @goal.funds_current += params[:goal][:donation].to_f
      @goal.save
+
   end
 
   # GET /goals/new

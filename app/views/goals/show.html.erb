@@ -33,6 +33,10 @@
          <small class="text-muted"><%= @goal.player %></small>
       </h3>
 
+      <div class="progress">
+         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= @goal.progress %>%" aria-valuenow="<%= @goal.progress %>" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+
 
       <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<%=edit_goal_path(@goal)%>">Edit</a></li>

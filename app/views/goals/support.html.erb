@@ -1,3 +1,13 @@
-<h1>PAY HERE</h1>
+<div class="view">
+  <div class="full-bg-img flex-center">
+    <div class="container ml-auto mb-5">
+         <h5 class="display-3 ml-auto" style="color: dimgray">Pay Here</h5>
 
-<%= render 'form_support', goal: @goal %>
+		<%= render 'form_support', goal: @goal %>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="<%=goals_path %>">Back</a></li>
+		</ol>
+	</div>
+  </div>
+</div>
