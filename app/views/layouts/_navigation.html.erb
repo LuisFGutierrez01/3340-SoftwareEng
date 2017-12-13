@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container" >
         <div class=" navbar-nav  mr-auto">
-          <a class="navbar-brand" href="<%=home_index_url%>">sponsor.me</a>
+          <a class="navbar-brand" href="<%=home_index_url%>">Battle fund</a>
           <a class="nav-item nav-link" href="<%=players_url%>">Players</a>
           <a class="nav-item nav-link" href="<%=goals_url%>">Goals</a>
         </div>
       <ul class="navbar-nav">
           <li>
             <% if (user_signed_in? != true) %>
-              <a href="<%= new_user_registration_url %>"role="button" class="btn btn-primary mr-3">Sign Up<span class="sr-only">(current)</span></a>
+              <a href="<%= new_user_registration_url %>"role="button" class="btn btn-primary">Sign Up<span class="sr-only">(current)</span></a>
             <% end %>
           </li>
 
@@ -17,22 +17,22 @@
               <a class="btn btn-outline-secondary" href="<%= new_user_session_url %>" role="button">Log In </a>
           <% else%>
           
-            <a class="btn btn-outline-secondary ml-2" href="<%= profile_index_url %>" data-method="get">My Profile</a>
+            <a class="btn btn-outline-secondary" href="<%= profile_index_url %>" data-method="get">My Profile</a>
             </li>
           <% end%>
         <% if user_signed_in?%>
         <li>
           <% if @player_nav != nil  %>
-            <a class="btn btn-outline-secondary ml-2" href="<%=player_path(@player_nav)%>">My Player</a>
-            <a class="btn btn-outline-secondary ml-2" href="<%=goals_own_index_url%>">My Goals</a>
+            <a class="btn btn-outline-secondary ml-1 " href="<%=player_path(@player_nav)%>">My Player</a>
+            <a class="btn btn-outline-secondary " href="<%=goals_own_index_url%>">My Goals</a>
           <% else %>
-            <a class="btn btn-outline-secondary ml-2" href="<%=new_player_url%>">My Player</a>
-            <a class="btn btn-outline-secondary ml-2" href="<%= goals_own_missing_url %>">My Goals </a>
+            <a class="btn btn-outline-secondary ml-1" href="<%=new_player_url%>">My Player</a>
+            <a class="btn btn-outline-secondary " href="<%= goals_own_missing_url %>">My Goals </a>
           <% end %>
         </li>
         <% end%>
         <li>
-          <a class="btn btn-outline-success" href="<%=new_goal_url%>">Start Here!</a>
+          <a class="btn btn-outline-success ml-1" href="<%=new_goal_url%>">Start Here!</a>
         </li>
 
         <% if user_signed_in?%>
