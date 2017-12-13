@@ -2,8 +2,8 @@
   <div class="full-bg-img flex-center">
     <div class="container ml-auto pb-5">
       <br><br><br><br>
-      <h1 class="display-2 ml-auto text-white">Fight bold.</h1></li>
-      <h3 class=" mb-3 ml-auto text-white">Start your career as a fighter, or help someone accomplish their goal.</h3>
+      <h1 class="display-2 ml-auto text-white" style="text-shadow: 2px 2px black;"> Fight bold.</h1></li>
+      <h3 class=" mb-3 ml-auto text-white" style="text-shadow: 2px 2px black;">Start your career as a fighter, or help someone accomplish their goal.</h3>
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="text" placeholder="Find players." aria-label="Search">
         <button class="btn btn-secondary my-2 my-sm-0" id="hook_button"type="submit">Search</button>
@@ -14,6 +14,7 @@
 
 <div class="jumbotron" id="hook">
   <div class="container ">
+    <br>
     <h1 class="display-4">Fundraising tailored for fighting game players.</h1>
     <h4 class="lead">From Marvel Infnite to Guilty Gear, no matter what you play, we can help you fulfill your goals.</h4>
     <hr class="my-4">
@@ -23,7 +24,7 @@
   </div>
 </div>
 
-<div class="container">
+<!--<div class="container">
   <div id="main_goal_headline" class="ml-auto">
     <h2>Players</h2>
   </div>
@@ -41,81 +42,188 @@
       </div>
     <% end %>
   </div>
+</div>-->
+
+<div class="view2">
+
+<h1 class="display-4 text-white" align="center" style="text-shadow: 2px 2px black;">Current Incentives</h1>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Synopsis</th>
+          <th scope="col">Duedate</th>
+          <th scope="col">Funds goal</th>
+          <th scope="col">Funds current</th>
+          <th scope="col">Player</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @goals.each do |goal| %>
+          <tr class="table-primary">
+            <td scope="row"><%= goal.title %></td>
+            <td><%= goal.synopsis %></td>
+            <td><%= goal.duedate %></td>
+            <td><%= goal.funds_goal %></td>
+            <td><%= goal.funds_current %></td>
+            <td><%= goal.player %></td>
+            <td><%= link_to 'Show', goal %></td>
+            <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+            <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+
+<!--<div class="full-bg-img flex-center">
+  <div class="container ml-auto pb-5">-->
+
+    <h1 class="display-4 text-white" align="center" style="text-shadow: 2px 2px black;"> Figthers </h1>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Player name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Youtube url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr class="table-primary">
+        <td scope="row"><%= player.player_name %></td>
+        <td><%= player.description %></td>
+        <td><%= player.youtube_url %></td>
+        <td><%= link_to 'Show', player %></td>
+        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br><br>
+
+
+    <!--
+      <div class="container mb-5">
+        <div id="main_goal_headline" class="ml-auto">
+          <h2>Goals</h2>
+        </div>
+        <div class="row">
+          <% @goals.each do |goal| %>
+            <div class="col mb-4">
+              <div class="card p-2" style="width: 20rem;">
+                <img class="card-img-top" src="/assets/download.svg" alt="Card image card-img-top">
+                <div class="card-block">
+                  <h4 class="card-title"><%= goal.title %></h4>
+                  <p class="card-text"><%= goal.synopsis%></p>
+                  <%= link_to 'Show', goal, class: 'btn'%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    -->
+
+
+    <h1 class="display-4 text-white" align="center" style="text-shadow: 2px 2px black;"> My Incentives </h1>
+
+
+    <p id="notice"><%= notice %></p>
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Synopsis</th>
+        <th scope="col">Duedate</th>
+        <th scope="col">Funds goal</th>
+        <th scope="col">Funds current</th>
+        <th scope="col">Player</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% if @goals != nil %>
+        <% @goals.each do |goal| %>
+          <tr class="table-primary">
+            <td scope="row"><%= goal.title %></td>
+            <td><%= goal.synopsis %></td>
+            <td><%= goal.duedate %></td>
+            <td><%= goal.funds_goal %></td>
+            <td><%= goal.funds_current %></td>
+            <td><%= goal.player %></td>
+            <td><%= link_to 'Show', goal %></td>
+            <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+            <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br><br><br>
+    <!--
+    <% if @goals_own != nil %>
+      <div class="container">
+        <div id="main_goal_headline" class="ml-auto">
+          <h2>MyGoals</h2>
+        </div>
+        <div class="row">
+          <% @goals_own.each do |goal| %>
+            <div class="col mb-4">
+              <div class="card p-2" style="width: 20rem;">
+                <img class="card-img-top" src="/assets/download.svg" alt="Card image card-img-top">
+                <div class="card-block">
+                  <h4 class="card-title"><%= goal.title %></h4>
+                  <p class="card-text"><%= goal.synopsis%></p>
+                  <%= link_to 'Show', goal, class: 'btn'%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    -->
+
+
+
+    <!--<h1>intro to the site</h1>-->
+    <!--<div>-->
+      <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>-->
+     <!--</div>-->
+    <!--<p>Find me in app/views/home/index.html.erb</p>-->
+
+
+    <!--&lt;!&ndash;Ruby should be generating all this crap just need a loop to make it -->
+        <!--this is all hardcoded in to see how things look like &ndash;&gt;-->
+        <!--<h2>Events title goes here </h2>-->
+        <!--<p>Event info goes here </p>-->
+        <!--<p>Image goes somewhere in here, make sure to indent things correcly </p>-->
+        <!--<p> image of event on left and info on the right like youtube? or something </p>-->
+    <!--<br>-->
+        <!--<h2>Events title goes here </h2>-->
+        <!--<p>Event info goes here </p>-->
+        <!--<p>Image goes somewhere in here, make sure to indent things correcly </p>-->
+        <!--<p> image of event on left and info on the right like youtube? or something </p>-->
+    <!--<br>-->
+     <!--<h2>Events title goes here </h2>-->
+        <!--<p>Event info goes here </p>-->
+        <!--<p>Image goes somewhere in here, make sure to indent things correcly </p>-->
+        <!--<p> image of event on left and info on the right like youtube? or something </p>-->
+    <!--<br>-->
+     <!--<h2>Events title goes here </h2>-->
+        <!--<p>Event info goes here </p>-->
+        <!--<p>Image goes somewhere in here, make sure to indent things correcly </p>-->
+        <!--<p> image of event on left and info on the right like youtube? or something </p>-->
+    <!--<br>-->
+  </div>
 </div>
-
-
-  <div class="container mb-5">
-    <div id="main_goal_headline" class="ml-auto">
-      <h2>Goals</h2>
-    </div>
-    <div class="row">
-      <% @goals.each do |goal| %>
-        <div class="col mb-4">
-          <div class="card p-2" style="width: 20rem;">
-            <img class="card-img-top" src="/assets/download.svg" alt="Card image card-img-top">
-            <div class="card-block">
-              <h4 class="card-title"><%= goal.title %></h4>
-              <p class="card-text"><%= goal.synopsis%></p>
-              <%= link_to 'Show', goal, class: 'btn'%>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-<% if @goals_own != nil %>
-  <div class="container">
-    <div id="main_goal_headline" class="ml-auto">
-      <h2>MyGoals</h2>
-    </div>
-    <div class="row">
-      <% @goals_own.each do |goal| %>
-        <div class="col mb-4">
-          <div class="card p-2" style="width: 20rem;">
-            <img class="card-img-top" src="/assets/download.svg" alt="Card image card-img-top">
-            <div class="card-block">
-              <h4 class="card-title"><%= goal.title %></h4>
-              <p class="card-text"><%= goal.synopsis%></p>
-              <%= link_to 'Show', goal, class: 'btn'%>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
-
-
-<!--<h1>intro to the site</h1>-->
-<!--<div>-->
-  <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>-->
- <!--</div>-->
-<!--<p>Find me in app/views/home/index.html.erb</p>-->
-
-
-<!--&lt;!&ndash;Ruby should be generating all this crap just need a loop to make it -->
-    <!--this is all hardcoded in to see how things look like &ndash;&gt;-->
-    <!--<h2>Events title goes here </h2>-->
-    <!--<p>Event info goes here </p>-->
-    <!--<p>Image goes somewhere in here, make sure to indent things correcly </p>-->
-    <!--<p> image of event on left and info on the right like youtube? or something </p>-->
-<!--<br>-->
-    <!--<h2>Events title goes here </h2>-->
-    <!--<p>Event info goes here </p>-->
-    <!--<p>Image goes somewhere in here, make sure to indent things correcly </p>-->
-    <!--<p> image of event on left and info on the right like youtube? or something </p>-->
-<!--<br>-->
- <!--<h2>Events title goes here </h2>-->
-    <!--<p>Event info goes here </p>-->
-    <!--<p>Image goes somewhere in here, make sure to indent things correcly </p>-->
-    <!--<p> image of event on left and info on the right like youtube? or something </p>-->
-<!--<br>-->
- <!--<h2>Events title goes here </h2>-->
-    <!--<p>Event info goes here </p>-->
-    <!--<p>Image goes somewhere in here, make sure to indent things correcly </p>-->
-    <!--<p> image of event on left and info on the right like youtube? or something </p>-->
-<!--<br>-->
-
-

@@ -12,3 +12,19 @@ background-color: #ced4da;
     background-size: cover;
     background-repeat: repeat-y;
 }
+
+.view2
+{
+    background: url("home_index_main2.gif") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+
+.jumbotron 
+{
+	padding: 10px;
+	margin: 0;
+}
