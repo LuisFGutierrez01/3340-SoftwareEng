@@ -1,24 +1,26 @@
+<div class="view">
+  <div class="full-bg-img flex-center">
+    <div class="container ml-auto mb-5">
+         <h5 class="display-4 ml-auto" style="color: dimgray">Goals</h5>
 <p id="notice"><%= notice %></p>
 
-<h1>Goals</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Synopsis</th>
-      <th>Duedate</th>
-      <th>Funds goal</th>
-      <th>Funds current</th>
-      <th>Player</th>
+      <th scope="col">Title</th>
+      <th scope="col">Synopsis</th>
+      <th scope="col">Duedate</th>
+      <th scope="col">Funds goal</th>
+      <th scope="col">Funds current</th>
+      <th scope="col">Player</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @goals.each do |goal| %>
-      <tr>
-        <td><%= goal.title %></td>
+      <tr class="table-dark">
+        <td scope="row"><%= goal.title %></td>
         <td><%= goal.synopsis %></td>
         <td><%= goal.duedate %></td>
         <td><%= goal.funds_goal %></td>
