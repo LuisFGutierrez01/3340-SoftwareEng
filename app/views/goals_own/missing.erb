@@ -1,2 +1,15 @@
-<h1>You must have a player in order to create goals!</h1>
+<div class="view">
+  <div class="full-bg-img flex-center">
+    <div class="container ml-auto mb-5">
+
+
+<div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>You must </strong> <a href="<%=new_player_url%>" class="alert-link">create a player page </a> before making a goal incentive. 
+</div>
+
+<h3 class="text-danger">You must have a player in order to create goals!</h3>
 <%= link_to 'Create your player now!', new_player_url %>
+
+</div>
+</div>
