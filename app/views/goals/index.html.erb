@@ -33,7 +33,7 @@
 </table>
 
 <br>
-<% if @user !=  nil %>
+<% if current_user !=  nil %>
   <% if @player != nil %>
     <%= link_to 'New Goal', new_goal_path %>
   <% else %>
