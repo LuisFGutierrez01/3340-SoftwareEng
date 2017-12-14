@@ -84,7 +84,7 @@
 </table>
 
 <br><br><br><br><br>
-
+  <% if @goals_own != nil %>
     <h1 class="display-4 text-white" align="center" style="text-shadow: 2px 2px black;"> My Incentives </h1>
 
 
@@ -103,8 +103,7 @@
       </thead>
 
       <tbody>
-      <% if @goals != nil %>
-        <% @goals.each do |goal| %>
+        <% @goals_own.each do |goal| %>
           <tr class="table-primary">
             <td scope="row"><%= goal.title %></td>
             <td><%= goal.synopsis %></td>

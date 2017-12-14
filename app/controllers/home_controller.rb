@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     @user = current_user
     @goals = Goal.all
     @players = Player.all
+    @goals_own = nil
     if @user != nil
       @player = @user.player
       if @user.is_player?
